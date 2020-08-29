@@ -12,7 +12,7 @@ const Books = () => {
     const getBooks = async () => {
       try {
         if (!isCancelled) {
-          const { data } = await axios.get("http://localhost:8000/books");
+          const { data } = await axios.get("http://localhost:4000/api/books");
 
           dispatch({ type: "SET_BOOKS_SUCCESS", books: data });
         }

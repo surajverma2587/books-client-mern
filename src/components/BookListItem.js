@@ -1,8 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-const BookListItem = ({ title, author }) => {
+const BookListItem = ({ id, title, author }) => {
+  const history = useHistory();
+
+  const onClick = (event) => {
+    const id = event.target.id;
+    history.push(`/books/${id}`);
+  };
+
   return (
-    <li className="list-group-item">
+    <li id={id} className="list-group-item" onClick={onClick}>
       {title} - {author}
     </li>
   );

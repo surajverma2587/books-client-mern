@@ -8,6 +8,7 @@ const BookList = ({ books }) => {
         return (
           <BookListItem
             key={book._id}
+            id={book._id}
             title={book.title}
             author={book.author}
           />
