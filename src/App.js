@@ -3,15 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./Routes";
 import Navbar from "./components/Navbar";
 import AppContext from "./AppContext";
-
-const appReducer = (state, action) => {
-  if (action.type === "SET_BOOKS_SUCCESS") {
-    return { ...state, books: action.books, loading: false, error: "" };
-  } else if (action.type === "SET_BOOKS_ERROR") {
-    return { ...state, loading: false, error: action.error };
-  }
-  return state;
-};
+import reducer from "./reducer";
 
 const App = () => {
   const initialState = {
@@ -19,7 +11,7 @@ const App = () => {
     loading: true,
     error: "",
   };
-  const [state, dispatch] = useReducer(appReducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <Router>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 import AppContext from "../AppContext";
 import BookList from "../components/BookList";
+import BookForm from "../components/BookForm";
 
 const Books = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -14,13 +15,13 @@ const Books = () => {
         if (!isCancelled) {
           const { data } = await axios.get("http://localhost:4000/api/books");
 
-          dispatch({ type: "SET_BOOKS_SUCCESS", books: data });
+          dispatch({ type: "SET_BOOKS_SUCCESS", payload: data });
         }
       } catch (err) {
         if (!isCancelled) {
           dispatch({
             type: "SET_BOOKS_ERROR",
-            error: "Error getting books",
+            payload: "Error getting books",
           });
         }
       }
@@ -40,7 +41,8 @@ const Books = () => {
       {state.error && <h3>{state.error}</h3>}
       <div className="row p-3 text-center">
         <div className="col-6">
-          <h1>Form here</h1>
+          <h1>Add a new Book</h1>
+          <BookForm />
         </div>
         <div className="col-6">
           <h1>List of books here</h1>
