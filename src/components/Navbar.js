@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-dark bg-dark">
-      <Link class="navbar-brand" to="/">
+    <nav className="navbar navbar-dark bg-dark">
+      <Link className="navbar-brand" to="/">
         React Reading List
       </Link>
     </nav>
