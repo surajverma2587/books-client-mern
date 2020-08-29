@@ -3,7 +3,7 @@ import axios from "axios";
 import AppContext from "../AppContext";
 
 const Books = () => {
-  const { books, loading, error, dispatch } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   useEffect(() => {
     let isCancelled = false;
@@ -13,12 +13,12 @@ const Books = () => {
         if (!isCancelled) {
           const { data } = await axios.get("http://localhost:8000/books");
 
-          dispatch({ type: "GET_ALL_BOOKS", books: data });
+          dispatch({ type: "SET_BOOKS_SUCCESS", books: data });
         }
       } catch (err) {
         if (!isCancelled) {
           dispatch({
-            type: "FETCH_ERROR",
+            type: "SET_BOOKS_ERROR",
             error: "Error getting books",
           });
         }
@@ -32,18 +32,18 @@ const Books = () => {
     };
   }, [dispatch]);
 
-  if (loading) return <div>Loading ...</div>;
+  if (state.loading) return <div>Loading ...</div>;
 
-  console.log(books);
+  console.log(state.books);
   return (
     <section>
-      {error && <h3>{error}</h3>}
+      {state.error && <h3>{state.error}</h3>}
       <div className="row p-3 text-center">
         <div className="col-6">
-          <h1> stuff</h1>
+          <h1>Form here</h1>
         </div>
         <div className="col-6">
-          <h1>renderBooks</h1>
+          <h1>List of books here</h1>
         </div>
       </div>
     </section>

@@ -5,9 +5,9 @@ import Navbar from "./components/Navbar";
 import AppContext from "./AppContext";
 
 const appReducer = (state, action) => {
-  if (action.type === "GET_ALL_BOOKS") {
+  if (action.type === "SET_BOOKS_SUCCESS") {
     return { ...state, books: action.books, loading: false, error: "" };
-  } else if (action.type === "FETCH_ERROR") {
+  } else if (action.type === "SET_BOOKS_ERROR") {
     return { ...state, loading: false, error: action.error };
   }
   return state;
@@ -21,7 +21,7 @@ const App = () => {
   };
   const [state, dispatch] = useReducer(appReducer, initialState);
   return (
-    <AppContext.Provider value={{ ...state, dispatch }}>
+    <AppContext.Provider value={{ state, dispatch }}>
       <Router>
         <Navbar />
         <Routes />
