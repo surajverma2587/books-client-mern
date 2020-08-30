@@ -3,7 +3,7 @@ import axios from "axios";
 import AppContext from "../AppContext";
 import BookList from "../components/BookList";
 import BookForm from "../components/BookForm";
-import { SET_BOOKS_SUCCESS, SET_BOOKS_ERROR } from "./types";
+import { SET_BOOKS_SUCCESS, SET_BOOKS_ERROR } from "../types";
 
 const Books = () => {
   const { state, dispatch } = useContext(AppContext);

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import AppContext from "../AppContext";
-import { REMOVE_FROM_COLLECTION } from "./types";
+import { REMOVE_FROM_COLLECTION } from "../types";
 
 const BookListItem = ({ id, title, author }) => {
   const { dispatch } = useContext(AppContext);

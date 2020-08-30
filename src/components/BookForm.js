@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import AppContext from "../AppContext";
-import { ADD_TO_COLLECTION } from "./types";
+import { ADD_TO_COLLECTION } from "../types";
 
 const BookForm = () => {
   const { dispatch } = useContext(AppContext);
