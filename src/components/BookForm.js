@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import AppContext from "../AppContext";
 import { ADD_TO_COLLECTION } from "../types";
-import { Modal, Button } from "react-bootstrap";
 import Popup from "./Popup";
 
 const BookForm = () => {
