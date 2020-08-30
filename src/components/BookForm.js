@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import AppContext from "../AppContext";
+import { ADD_TO_COLLECTION } from "./types";
 
 const BookForm = () => {
   const { dispatch } = useContext(AppContext);
@@ -42,7 +43,7 @@ const BookForm = () => {
 
         setSuccess("Wahey! It added fine");
         resetForm();
-        dispatch({ type: "ADD_TO_COLLECTION", payload: data });
+        dispatch({ type: ADD_TO_COLLECTION, payload: data });
       } catch (error) {
         setError("Something went wrong adding your book!");
       }
