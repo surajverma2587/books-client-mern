@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import AppContext from "../AppContext";
 import { ADD_TO_COLLECTION } from "../types";
+import { Modal, Button } from "react-bootstrap";
+import Popup from "./Popup";
 
 const BookForm = () => {
   const { dispatch } = useContext(AppContext);
@@ -10,7 +12,12 @@ const BookForm = () => {
   const [author, setAuthor] = useState("");
   const [synopsis, setSynopsis] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    resetForm();
+  };
 
   const onChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -41,8 +48,8 @@ const BookForm = () => {
           synopsis,
         });
 
-        setSuccess("Wahey! It added fine");
-        resetForm();
+        setShow(true);
+
         dispatch({ type: ADD_TO_COLLECTION, payload: data });
       } catch (error) {
         setError("Something went wrong adding your book!");
@@ -52,12 +59,24 @@ const BookForm = () => {
     }
   };
 
+  const renderModal = () => {
+    if (show) {
+      return (
+        <Popup
+          show={show}
+          handleClose={handleClose}
+          title="Success"
+          text={`${title} added to database!!`}
+        />
+      );
+    }
+    return null;
+  };
+
   return (
     <form onSubmit={onSubmit}>
       {error && <small className="form-text text-danger my-3">{error}</small>}
-      {success && (
-        <small className="form-text text-success my-3">{success}</small>
-      )}
+      {renderModal()}
       <div className="form-group row">
         <label htmlFor="title" className="col-2 col-form-label">
           Title
