@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/books-client-mern/static/js/main.6955cbe4.chunk.js",
+    "main.js.map": "/books-client-mern/static/js/main.6955cbe4.chunk.js.map",
+    "runtime-main.js": "/books-client-mern/static/js/runtime-main.7340e32c.js",
+    "runtime-main.js.map": "/books-client-mern/static/js/runtime-main.7340e32c.js.map",
+    "static/js/2.0db90d1c.chunk.js": "/books-client-mern/static/js/2.0db90d1c.chunk.js",
+    "static/js/2.0db90d1c.chunk.js.map": "/books-client-mern/static/js/2.0db90d1c.chunk.js.map",
+    "index.html": "/books-client-mern/index.html",
+    "precache-manifest.2880ab6539acc76dc1d6de31139ddde6.js": "/books-client-mern/precache-manifest.2880ab6539acc76dc1d6de31139ddde6.js",
+    "service-worker.js": "/books-client-mern/service-worker.js",
+    "static/js/2.0db90d1c.chunk.js.LICENSE.txt": "/books-client-mern/static/js/2.0db90d1c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7340e32c.js",
+    "static/js/2.0db90d1c.chunk.js",
+    "static/js/main.6955cbe4.chunk.js"
+  ]
+}
