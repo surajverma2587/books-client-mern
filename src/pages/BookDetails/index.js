@@ -16,7 +16,7 @@ const BookDetails = () => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const formatDate = (date) => {
     return moment(date).format("MMMM Do YYYY");
