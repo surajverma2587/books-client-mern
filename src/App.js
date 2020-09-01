@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import Routes from "./Routes";
 import Navbar from "./components/Navbar";
 import AppContext from "./AppContext";
@@ -11,7 +12,9 @@ const App = () => {
     loading: true,
     error: "",
   };
+
   const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <AppContext.Provider value={{ state, dispatch }}>
       <Router>

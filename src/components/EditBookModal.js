@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import axios from "axios";
+import { BOOK_DETAILS_URL } from "../config";
 
 const EditBookModal = ({ show, handleClose, book, setBook }) => {
   const [title, setTitle] = useState(book.title);
@@ -32,7 +33,7 @@ const EditBookModal = ({ show, handleClose, book, setBook }) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:4000/api/books/${book._id}`,
+      `${BOOK_DETAILS_URL}/${book._id}`,
       payload
     );
 

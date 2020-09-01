@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
+
 import AppContext from "../AppContext";
 import BookList from "../components/BookList";
 import BookForm from "../components/BookForm";
 import { SET_BOOKS_SUCCESS, SET_BOOKS_ERROR } from "../types";
+import { BOOK_DETAILS_URL } from "../config";
 
 const Books = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -14,7 +16,7 @@ const Books = () => {
     const getBooks = async () => {
       try {
         if (!isCancelled) {
-          const { data } = await axios.get("http://localhost:4000/api/books");
+          const { data } = await axios.get(BOOK_DETAILS_URL);
 
           dispatch({ type: SET_BOOKS_SUCCESS, payload: data });
         }

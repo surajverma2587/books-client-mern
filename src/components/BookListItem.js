@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+
 import AppContext from "../AppContext";
 import { REMOVE_FROM_COLLECTION } from "../types";
+import { BOOK_DETAILS_URL } from "../config";
 
 const BookListItem = ({ id, title, author }) => {
   const { dispatch } = useContext(AppContext);
@@ -15,9 +17,7 @@ const BookListItem = ({ id, title, author }) => {
 
   const onDelete = async (event) => {
     event.stopPropagation();
-    const { data } = await axios.delete(
-      `http://localhost:4000/api/books/${id}`
-    );
+    const { data } = await axios.delete(`${BOOK_DETAILS_URL}/${id}`);
     dispatch({ type: REMOVE_FROM_COLLECTION, payload: data.data });
   };
 

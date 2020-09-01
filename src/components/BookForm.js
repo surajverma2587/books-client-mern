@@ -3,6 +3,7 @@ import axios from "axios";
 import AppContext from "../AppContext";
 import { ADD_TO_COLLECTION } from "../types";
 import Popup from "./Popup";
+import { BOOK_DETAILS_URL } from "../config";
 
 const BookForm = () => {
   const { dispatch } = useContext(AppContext);
@@ -41,7 +42,7 @@ const BookForm = () => {
     event.preventDefault();
     if (title && author && synopsis) {
       try {
-        const { data } = await axios.post("http://localhost:4000/api/books", {
+        const { data } = await axios.post(BOOK_DETAILS_URL, {
           title,
           author,
           synopsis,

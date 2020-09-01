@@ -2,9 +2,9 @@ import React, { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
-import EditBookModal from "../../components/EditBookModal";
 
-const BOOK_DETAILS_URL = "http://localhost:4000/api/books";
+import EditBookModal from "../../components/EditBookModal";
+import { BOOK_DETAILS_URL } from "../../config";
 
 const BookDetails = () => {
   const { id } = useParams();
